@@ -100,7 +100,7 @@ echo GetPing();
 ?>
 </font><br>
 <img src="icons/Globe-icon.png" alt="Ping"/> <font size = "3">Speed Test :
-<iframe src="http://backup.neto.mx/speedtest.php" width="100px" height="18px" frameborder="0" scrolling="no" style="position:relative; top:3px;"></iframe>
+<iframe src="speedtest.php" width="100px" height="18px" frameborder="0" scrolling="no" style="position:relative; top:3px;"></iframe>
 </font><br><br>
 <?php 
 echo "Page generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds"; ?> 
