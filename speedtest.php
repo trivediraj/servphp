@@ -10,6 +10,6 @@ echo $b;
 unset ($a, $b);
 }
 else
-echo 'Error getting speedtest';
+echo 'Error running speedtest';
 ?>
 </body></html>
