@@ -40,7 +40,7 @@ $exec = exec("ping -c 3 -s 64 -t 64 ".$ip);
 $array = explode("/", end(explode("=", $exec )) );
 return ceil($array[1]) . 'ms';
 }
-echo "<img src='icons/up-alt-icon.png' alt='Uptime' /> <font size = '3'> Server Uptime: ";
+echo "<img src='icons/up-alt-icon.png' alt='Uptime' /> <font size = '3'> Server Uptime : ";
 exec("uptime",$uptime);
 if ($end=strpos($uptime[0], ',')) {
 $b = substr($uptime[0], 0, $end);
@@ -50,7 +50,7 @@ unset ($a, $b);
 else
 echo "Error getting uptime";
 echo "</font><br>";
-echo "<img src='icons/loaded-truck.png' alt='Load' /> <font size = '3'> Average Load: ";
+echo "<img src='icons/loaded-truck.png' alt='Load' /> <font size = '3'> Average Load : ";
 exec("uptime",$load);
 if ($start=strpos($load[0], 'age:')) {
 $end=strlen($load[0])-$start;
@@ -63,7 +63,7 @@ echo "Error getting load";
 ?>
 </font><br>
 
-<img src="icons/intel-2-icon.png" alt="CPU" /> <font size = "3"> Server CPU Info: </font>
+<img src="icons/intel-2-icon.png" alt="CPU" /> <font size = "3"> Server CPU Info : </font>
 <?php 
 exec("cat /proc/cpuinfo | grep 'model name'",$a);
 if ($start=strpos($a[0], ':')) {
@@ -76,7 +76,7 @@ else
 echo 'Error getting cpuinfo';
 ?>
 <br>
-<img src="icons/Ekisho-Deep-Ocean-HD-1-icon.png" alt="HDD"/> <font size = "3"> Server Disk Usage: 
+<img src="icons/Ekisho-Deep-Ocean-HD-1-icon.png" alt="HDD"/> <font size = "3"> Server Disk Usage : 
 <?php 
 exec("df -h",$a);
 if ($start=strpos($a[1], '%')) {
@@ -88,12 +88,12 @@ else
 echo 'Error getting HDD space';
 ?>
 </font><br>
-<img src="icons/monitor-icon.png" alt="HDD" /> <font size = "3"> Memory Usage: 
+<img src="icons/monitor-icon.png" alt="HDD" /> <font size = "3"> Memory Usage : 
 <?php
 echo get_memory(); 
 ?>
 %</font><br>
-<img src="icons/Globe-icon.png" alt="Ping"/> <font size = "3">Your ping to this server: 
+<img src="icons/Globe-icon.png" alt="Ping"/> <font size = "3">Your ping to this server : 
 <?php 
 echo GetPing();
 ?>
