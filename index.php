@@ -102,6 +102,6 @@ echo GetPing();
 <iframe src="speedtest.php" width="100px" height="18px" frameborder="0" scrolling="no" style="position:relative; top:3px;"></iframe>
 </font><br><br>
 <?php 
-echo "Page generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds"; ?> 
+  <P ALIGN="RIGHT"> echo "Page generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds"; ?> </P>
 </div></div></body>
 </html>
