@@ -103,7 +103,7 @@ echo GetPing();
 </font><br><br>
   <P ALIGN="RIGHT">
 <?php 
-echo "Page generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds"; ?> 
+echo "Info generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds"; ?> 
 </P>
 </div></div></body>
 </html>
