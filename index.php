@@ -105,5 +105,7 @@ echo GetPing();
 <?php 
 echo "Info generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds."; ?> 
 </center>
+  <center> Credits : 
+http://code.google.com/p/servphp/wiki/Credits</center>
 </div></div></body>
 </html>
