@@ -98,12 +98,12 @@ echo get_memory();
 echo GetPing();
 ?>
 </font><br>
-<img src="icons/Globe-icon.png" alt="Ping"/> <font size = "3">Speed Test :
+<img src="icons/Globe-icon.png" alt="Ping"/> <font size = "3">Server Download Speed Test :
 <iframe src="speedtest.php" width="100px" height="18px" frameborder="0" scrolling="no" style="position:relative; top:3px;"></iframe>
 </font><br><br>
   <center>
 <?php 
-echo "Info generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds"; ?> 
+echo "Info generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds."; ?> 
 </center>
 </div></div></body>
 </html>
