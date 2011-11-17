@@ -98,7 +98,7 @@ echo get_memory();
 echo GetPing();
 ?>
 </font><br>
-<img src="icons/Globe-icon.png" alt="Ping"/> <font size = "3">Server Download Speed Test :
+<img src="icons/down-alt-icon.png" alt="Ping"/> <font size = "3">Server Download Speed Test :
 <iframe src="speedtest.php" width="100px" height="18px" frameborder="0" scrolling="no" style="position:relative; top:3px;"></iframe>
 </font><br><br>
   <center>
