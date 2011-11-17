@@ -25,7 +25,7 @@ document.all.prepage.style.visibility = 'hidden';
 <div style="position:absolute; top:50%; left:50%; vertical-align:middle; text-align: center; ">
 <img src="icons/loading.gif" style="position:relative;left:-16px;top:-16px;"></div>
 </DIV>
-<div style="position:relative; left: 14px; top:8px;"><center><h3>ServPHP - Server Monitor</h3></center>
+<center><h1>ServPHP - Server Monitor</h1></center>
 <?php
 //Need to have this functions (and make other functions) and move then to a separate file
 function get_memory() {
