@@ -41,15 +41,15 @@ $array = explode("/", end(explode("=", $exec )) );
 return ceil($array[1]) . 'ms';
 }
 echo "<img src='icons/up-alt-icon.png' alt='Uptime' /> <font size = '3'> Server Uptime : ";
-exec("uptime",$uptime);
-if ($end=strpos($uptime[0], ',')) {
-$b = substr($uptime[0], 0, $end);
-echo $b;
-unset ($a, $b);
-}
-else
-echo "Error getting uptime";
-echo "</font><br>";
+$uptime = shell_exec("cut -d. -f1 /proc/uptime");
+$days = floor($uptime/60/60/24);
+$hours = $uptime/60/60%24;
+$mins = $uptime/60%60;
+$secs = $uptime%60;
+echo "$days days $hours hours $mins minutes and $secs seconds";
+?>
+<br>
+<?php
 echo "<img src='icons/loaded-truck.png' alt='Load' /> <font size = '3'> Average Load : ";
 exec("uptime",$load);
 if ($start=strpos($load[0], 'age:')) {
@@ -101,11 +101,10 @@ echo GetPing();
 <img src="icons/down-alt-icon.png" alt="Ping"/> <font size = "3">Server Download Speed Test :
 <iframe src="speedtest.php" width="100px" height="18px" frameborder="0" scrolling="no" style="position:relative; top:3px;"></iframe>
 </font><br><br>
-  <center>
-<?php 
-echo "Info generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds."; ?> 
-</center>
   <center> Credits : 
 http://code.google.com/p/servphp/wiki/Credits</center>
+<center><?php 
+echo "Page generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds"; ?> </center>
 </div></div></body>
 </html>
+
