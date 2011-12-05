@@ -1,0 +1,134 @@
+// New Default CSS for ServPHP
+
+
+#body 
+{
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	font: 12px Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #061C37;
+	background: #EEEFE4;
+	background-image:url(icons/background.png);
+	background-repeat:repeat-x;
+}
+*
+{
+	margin: 0 auto 0 auto;
+	text-align:center;
+}
+
+#container
+{
+  display: block; 
+  height:auto;
+  position: relative; 
+  width: 960px;
+}
+
+
+#header
+{
+height:85px;
+width:960px;	
+}
+
+#header h1
+{
+	position:absolute;
+	text-align:center;
+	color:#FFFFFF;
+	font-size:50px;
+	color:#69F;
+	left:1px;
+	top:13px;
+	width: 959px;
+	height: 69px;
+	font-style: italic;
+}
+
+.off
+{
+color:#67A0F5;
+}
+
+
+#menu
+{
+	display:block;
+	float:left;
+	clear:both;
+	width:960px;
+	height:54px;
+	float:left;
+	clear:both;
+	font-size: 24px;
+}
+
+#content
+{
+display:block;
+float:left;
+width:100%;
+height:auto;
+padding-left:10px;
+padding-top:15px;
+padding-right:10px;
+padding-bottom:5px;
+}
+
+
+#content_top
+{
+	background-image:url(icons/main_top.png);
+	background-repeat:no-repeat;
+	width:689px;
+	height:25px;
+}
+
+#content_main
+{
+background-image:url(icons/main_back.png);
+background-repeat:repeat-y;
+width:659px;
+padding-left:15px;
+padding-right:15px;
+}
+
+#invisiblebox
+{
+width:50%;
+padding-left:15px;
+padding-right:15px;
+}
+
+#content_bottom
+{
+background-image:url(icons/main_bottom.png);
+background-repeat:no-repeat;
+width:689px;
+height:25px;
+}
+
+#footer
+{
+width:inherit;
+height:auto;
+}
+
+#footer h3 a,#footer h3 a:visited
+{
+display:block;
+text-align:center;
+font-size:12px;
+text-decoration:none;
+color:#7198E1;
+}
+
+html, body {
+text-align: center;
+}
+p {
+	text-align: center;
+}
