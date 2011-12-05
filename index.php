@@ -1,110 +1,93 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="refresh" content="30" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
 <title>ServPHP</title>
-<SCRIPT TYPE="text/javascript" LANGUAGE="javascript">
-<!-- PreLoad Wait - Script -->
-<!-- This script and more from http://www.rainbow.arch.scriptmania.com 
-function waitPreloadPage() { //DOM
-if (document.getElementById){
-document.getElementById('prepage').style.visibility='hidden';
-}else{
-if (document.layers){ //NS4
-document.prepage.visibility = 'hidden';
+<style type="text/css">
+<!--
+body {
+	background-image: url(icons/background.png);
+	background-repeat: repeat-x;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
-else { //IE4
-document.all.prepage.style.visibility = 'hidden';
+.submenu {
+	color: #69F;
 }
+.submenu {
+	font-style: italic;
 }
-}
-// End -->
-</SCRIPT>
+-->
+</style>
+</head>
 
-</head><body onLoad="waitPreloadPage();" style="margin: 0pt; padding: 0pt;">
-<DIV id="prepage" style="position:absolute; font-family:arial; font-size:16; background-color:white; layer-background-color:white; height:100%; width:100%; z-index:1;"> 
-<div style="position:absolute; top:50%; left:50%; vertical-align:middle; text-align: center; ">
-<img src="icons/loading.gif" style="position:relative;left:-16px;top:-16px;"></div>
-</DIV>
-<center><h1>ServPHP - Server Monitor</h1></center>
-<?php
-//Need to have this functions (and make other functions) and move then to a separate file
-function get_memory() {
-  foreach(file('/proc/meminfo') as $ri)
-    $m[strtok($ri, ':')] = strtok('');
-  return 100 - round(($m['MemFree'] + $m['Buffers'] + $m['Cached']) / $m['MemTotal'] * 100);
-}
-
-function GetPing($ip=NULL) {
-$ip = $_SERVER['REMOTE_ADDR'];
-$exec = exec("ping -c 3 -s 64 -t 64 ".$ip);
-$array = explode("/", end(explode("=", $exec )) );
-return ceil($array[1]) . 'ms';
-}
-echo "<img src='icons/up-alt-icon.png' alt='Uptime' /> <font size = '3'> Server Uptime : ";
-$uptime = shell_exec("cut -d. -f1 /proc/uptime");
-$days = floor($uptime/60/60/24);
-$hours = $uptime/60/60%24;
-$mins = $uptime/60%60;
-$secs = $uptime%60;
-echo "$days days $hours hours $mins minutes and $secs seconds";
-?>
-<br>
-<?php
-echo "<img src='icons/loaded-truck.png' alt='Load' /> <font size = '3'> Average Load : ";
-exec("uptime",$load);
-if ($start=strpos($load[0], 'age:')) {
-$end=strlen($load[0])-$start;
-$b = substr($load[0], $start+5, $end);
-echo $b;
-unset ($a, $b);
-}
-else
-echo "Error getting load";
-?>
-</font><br>
-
-<img src="icons/intel-2-icon.png" alt="CPU" /> <font size = "3"> Server CPU Info : </font>
-<?php 
-exec("cat /proc/cpuinfo | grep 'model name'",$a);
-if ($start=strpos($a[0], ':')) {
-$end=strlen($a[0])-$start;
-$b = substr($a[0], $start+1, $end);
-echo $b;
-unset ($a, $b);
-}
-else
-echo 'Error getting cpuinfo';
-?>
-<br>
-<img src="icons/Ekisho-Deep-Ocean-HD-1-icon.png" alt="HDD"/> <font size = "3"> Server Disk Usage : 
-<?php 
-exec("df -h",$a);
-if ($start=strpos($a[1], '%')) {
-$b = substr($a[1], $start-2, 3);
-echo $b;
-unset ($a, $b);
-}
-else
-echo 'Error getting HDD space';
-?>
-</font><br>
-<img src="icons/monitor-icon.png" alt="HDD" /> <font size = "3"> Memory Usage : 
-<?php
-echo get_memory(); 
-?>
-%</font><br>
-<img src="icons/Globe-icon.png" alt="Ping"/> <font size = "3">Your ping to this server : 
-<?php 
-echo GetPing();
-?>
-</font><br>
-<img src="icons/down-alt-icon.png" alt="Ping"/> <font size = "3">Server Download Speed Test :
-<iframe src="speedtest.php" width="100px" height="18px" frameborder="0" scrolling="no" style="position:relative; top:3px;"></iframe>
-</font><br><br>
-  <center> Credits : 
-http://code.google.com/p/servphp/wiki/Credits</center>
-<center><?php 
-echo "Page generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds"; ?> </center>
-</div></div></body>
+<body>
+<div id="container">
+		<div id="header">
+        	<h1>Serv<span class="off">PHP</span></h1>
+  </div>      
+        <div class="submenu" id="menu"> The Open Source Server Montior</div> 
+        
+		<div id="content">
+        
+        
+        <div id="content_top"></div>
+        <div id="content_main">  
+        <div id="invisiblebox">
+          <p><em><strong>  
+          What tests would you like to run?</strong></em></p>
+          <p><em>(Less tests will decrease script load time)</em></p>
+          <FORM NAME ="form1" METHOD ="POST" ACTION ="results.php">
+            <p>&nbsp;</p>
+            <p>Server IP Address
+              <Input type = 'Checkbox' Name ='ch1' value ="selected" checked ="checked"
+> 
+            </p>
+            <P>
+              Server Uptime
+  <Input type = 'Checkbox' Name ='ch2' value="selected" checked ="checked"
+>
+<P>
+Average Load
+<Input type = 'Checkbox' Name ='ch3' value="selected" checked ="checked"
+>
+<P>
+Server CPU Info
+<Input type = 'Checkbox' Name ='ch4' value="selected" checked ="checked"
+>
+<P>
+Server Disk Usage
+<Input type = 'Checkbox' Name ='ch5' value="selected" checked ="checked"
+>
+<P>
+Memory Usage
+<Input type = 'Checkbox' Name ='ch6' value="selected" checked ="checked"
+>
+<P>
+Your Ping to this Server
+<Input type = 'Checkbox' Name ='ch7' value="selected" checked ="checked"
+>
+<P>
+Server Download Speed Test
+<Input type = 'Checkbox' Name ='ch8' value="selected" checked ="checked"
+>
+<P>
+<P>
+<INPUT TYPE = "Submit" Name = "Submit1" VALUE = "Run the tests">
+</FORM>
+</div>
+        </div>
+        
+        <div id="content_bottom"></div>
+           
+            <div id="footer">
+              <a href="http://www.servphp.org">Credits : http://code.google.com/p/servphp/wiki/Credits</a>
+                </br>
+                <?php 
+                echo "Page generated in ". number_format(microtime(true) - $_SERVER['REQUEST_TIME']) ." seconds"; 
+				?> 
+          </div>
+  </div>
+</div>
+</body>
 </html>
-
