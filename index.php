@@ -1,3 +1,27 @@
+<?php
+session_start();
+if ($_POST['Submit1'] == 'Run the tests') {
+	
+	$ch1=$_POST['ch1'];
+    $ch2=$_POST['ch2'];
+	$ch3=$_POST['ch3'];
+    $ch4=$_POST['ch4'];
+	$ch5=$_POST['ch5'];
+    $ch6=$_POST['ch6'];
+	$ch7=$_POST['ch7'];
+    $ch8=$_POST['ch8'];
+	
+    $_SESSION['ch1']=$ch1;
+	$_SESSION['ch2']=$ch2;
+	$_SESSION['ch3']=$ch3;
+	$_SESSION['ch4']=$ch4;
+	$_SESSION['ch5']=$ch5;
+	$_SESSION['ch6']=$ch6;
+	$_SESSION['ch7']=$ch7;
+	$_SESSION['ch8']=$ch8;
+header( 'Location: results.php' ) ;
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,7 +44,6 @@ body {
 -->
 </style>
 </head>
-
 <body>
 <div id="container">
 		<div id="header">
@@ -37,7 +60,7 @@ body {
           <p><em><strong>  
           What tests would you like to run?</strong></em></p>
           <p><em>(Less tests will decrease script load time)</em></p>
-          <FORM NAME ="form1" METHOD ="POST" ACTION ="results.php">
+          <FORM NAME ="form1" METHOD ="POST" ACTION ="index.php">
             <p>&nbsp;</p>
             <p>Server IP Address
               <Input type = 'Checkbox' Name ='ch1' value ="selected" checked ="checked"
