@@ -84,4 +84,12 @@ unset ($a, $b);
 else
 echo 'Error running speedtest';
 }
+
+//Poll port Function
+function poll_port(int $port)
+{
+$query = @fsockopen("localhost", $port, $errno, $errstr);
+if($query) return 0;
+else return 1;
+}
 ?>
